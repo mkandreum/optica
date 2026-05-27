@@ -72,13 +72,13 @@ export function Header({ currentView, onNavigate, onToggleCart, cartCount }: Hea
               
               {/* Brand Typography */}
               <div className="flex flex-col items-center text-center mt-2.5">
-                <span className="text-[13px] sm:text-xs md:text-[14px] uppercase font-semibold leading-none text-[#1A1A1A]/90 font-sans flex items-center justify-center gap-x-1 whitespace-nowrap">
+                <span className="text-[17px] sm:text-sm md:text-[15px] uppercase font-semibold leading-none text-[#1A1A1A]/90 font-sans flex items-center justify-center gap-x-1 whitespace-nowrap">
                   <span className="tracking-[0.32em]">LA</span>
                   <svg 
                     viewBox="0 0 100 108" 
                     fill="none" 
                     xmlns="http://www.w3.org/2000/svg" 
-                    className="w-[12px] h-[13px] sm:w-[11px] sm:h-[12px] md:w-[13px] md:h-[14.2px] inline-block text-[#1A1A1A] shrink-0 translate-y-[-0.5px]"
+                    className="w-[14px] h-[15.5px] sm:w-[12px] sm:h-[13px] md:w-[14px] md:h-[15.5px] inline-block text-[#1A1A1A] shrink-0 translate-y-[-0.5px]"
                   >
                     {/* Accent mark */}
                     <path 
@@ -95,13 +95,13 @@ export function Header({ currentView, onNavigate, onToggleCart, cartCount }: Hea
                   </svg>
                   <span className="tracking-[0.32em] ml-0.5">PTICA</span>
                 </span>
-                <span className="text-[11px] sm:text-[10px] md:text-[12px] uppercase tracking-[0.22em] font-serif italic opacity-[0.95] leading-none mt-1 sm:mt-1.5 text-[#1A1A1A]/80">
+                <span className="text-[14px] sm:text-[11px] md:text-[13px] uppercase tracking-[0.22em] font-serif italic opacity-[0.95] leading-none mt-1.5 sm:mt-1.5 text-[#1A1A1A]/80">
                   de Antonio
                 </span>
-                <span className="text-[8px] uppercase tracking-[0.18em] text-[#1A1A1A]/50 font-mono mt-1 font-bold">
+                <span className="text-[10px] sm:text-[8px] md:text-[9px] uppercase tracking-[0.18em] text-[#1A1A1A]/50 font-mono mt-1 font-bold">
                   desde 1999
                 </span>
-                <span className="text-[7.5px] sm:text-[7.5px] md:text-[8px] uppercase tracking-[0.25em] text-[#1A1A1A]/35 font-mono font-bold mt-1.5 whitespace-nowrap">
+                <span className="text-[9.5px] sm:text-[8px] md:text-[9.5px] uppercase tracking-[0.25em] text-[#1A1A1A]/35 font-mono font-bold mt-2 whitespace-nowrap">
                   Alta Optometría • Diseño Independiente
                 </span>
               </div>
