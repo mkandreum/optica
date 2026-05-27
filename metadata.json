@@ -1,0 +1,6 @@
+{
+  "name": "ó Eyewear",
+  "description": "Minimalist interactive 3D glasses store with AR try-on",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

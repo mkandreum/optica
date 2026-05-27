@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+}
+
+@utility hide-scrollbar {
+  -ms-overflow-style: none; /* IE, Edge */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #F9F9F7;
+  color: #1A1A1A;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Ensure canvas and divs inside pointer-events-none do not block mobile scroll/touch gestures */
+.pointer-events-none,
+.pointer-events-none canvas,
+.pointer-events-none div,
+canvas.pointer-events-none {
+  pointer-events: none !important;
+  touch-action: auto !important;
+}
+
+/* Hide scrollbars globally */
+* {
+  -ms-overflow-style: none; /* IE, Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
