@@ -72,8 +72,28 @@ export function Header({ currentView, onNavigate, onToggleCart, cartCount }: Hea
               
               {/* Brand Typography */}
               <div className="flex flex-col items-center text-center mt-2.5">
-                <span className="text-[13px] sm:text-xs md:text-[14px] uppercase tracking-[0.32em] font-semibold leading-none text-[#1A1A1A]/90 font-sans">
-                  La Óptica
+                <span className="text-[13px] sm:text-xs md:text-[14px] uppercase font-semibold leading-none text-[#1A1A1A]/90 font-sans flex items-center justify-center gap-x-1 whitespace-nowrap">
+                  <span className="tracking-[0.32em]">LA</span>
+                  <svg 
+                    viewBox="0 0 100 108" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    className="w-[12px] h-[13px] sm:w-[11px] sm:h-[12px] md:w-[13px] md:h-[14.2px] inline-block text-[#1A1A1A] shrink-0 translate-y-[-0.5px]"
+                  >
+                    {/* Accent mark */}
+                    <path 
+                      d="M52 23V7H85L66 23H52Z" 
+                      fill="currentColor" 
+                    />
+                    {/* Outer circle minus the centered custom cutout */}
+                    <path 
+                      fillRule="evenodd" 
+                      clipRule="evenodd" 
+                      d="M50 98C70.9868 98 88 81.0132 88 60C88 39.0132 70.9868 22 50 22C29.0132 22 12 39.0132 12 60C12 81.0132 29.0132 98 50 98ZM28 44L37 35H63L72 44V72C72 84.1503 62.1503 94 50 94C37.8497 94 28 84.1503 28 72V44Z" 
+                      fill="currentColor" 
+                    />
+                  </svg>
+                  <span className="tracking-[0.32em] ml-0.5">PTICA</span>
                 </span>
                 <span className="text-[11px] sm:text-[10px] md:text-[12px] uppercase tracking-[0.22em] font-serif italic opacity-[0.95] leading-none mt-1 sm:mt-1.5 text-[#1A1A1A]/80">
                   de Antonio
