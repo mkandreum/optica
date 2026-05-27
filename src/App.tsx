@@ -4,7 +4,6 @@ import { AppState, Product, CartItem, ViewState } from './types';
 import { products } from './data';
 import { CatalogView } from './components/CatalogView';
 import { ProductView } from './components/ProductView';
-import { ARView } from './components/ARView';
 import { Header } from './components/Header';
 import { CartOverlay } from './components/CartOverlay';
 import { ServicesView } from './components/ServicesView';
@@ -25,10 +24,12 @@ export default function App() {
 
   const handleNavigate = (view: ViewState) => {
     setState((prev) => ({ ...prev, currentView: view, menuOpen: false, selectedProduct: null }));
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
   };
 
   const handleSelectProduct = (product: Product) => {
     setState((prev) => ({ ...prev, currentView: 'detail', selectedProduct: product }));
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
   };
 
   const handleNextProduct = () => {
@@ -47,14 +48,6 @@ export default function App() {
 
   const handleBackToCatalog = () => {
     handleNavigate('catalog');
-  };
-
-  const handleTryOn = () => {
-    setState((prev) => ({ ...prev, currentView: 'ar' }));
-  };
-
-  const handleBackFromAR = () => {
-    setState((prev) => ({ ...prev, currentView: 'detail' }));
   };
 
   const toggleMenu = () => setState(prev => ({ ...prev, menuOpen: !prev.menuOpen, cartOpen: false }));
@@ -131,7 +124,6 @@ export default function App() {
               key={`detail-${state.selectedProduct.id}`} 
               product={state.selectedProduct} 
               onBack={handleBackToCatalog} 
-              onTryOn={handleTryOn}
               onAddToCart={() => addToCart(state.selectedProduct!)}
               onToggleCart={toggleCart}
               cartCount={state.cartItems.reduce((acc, item) => acc + item.quantity, 0)}
@@ -155,18 +147,10 @@ export default function App() {
           {state.currentView === 'appointments' && (
             <AppointmentView key="appointments" />
           )}
-
-          {state.currentView === 'ar' && state.selectedProduct && (
-            <ARView 
-              key="ar" 
-              product={state.selectedProduct} 
-              onBack={handleBackFromAR} 
-            />
-          )}
         </AnimatePresence>
       </div>
 
-      {state.currentView !== 'ar' && <Footer onNavigate={handleNavigate} />}
+      <Footer onNavigate={handleNavigate} />
     </div>
   );
 }

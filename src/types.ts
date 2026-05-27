@@ -14,7 +14,7 @@ export interface CartItem {
   quantity: number;
 }
 
-export type ViewState = 'home' | 'catalog' | 'detail' | 'ar' | 'services' | 'brands' | 'about' | 'appointments';
+export type ViewState = 'home' | 'catalog' | 'detail' | 'services' | 'brands' | 'about' | 'appointments';
 
 export interface AppState {
   currentView: ViewState;

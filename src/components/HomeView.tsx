@@ -91,56 +91,47 @@ export function HomeView({ products, onSelectProduct, onNavigate }: HomeViewProp
         </div>
 
         {/* Mosaic/Collage Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {featuredProducts.map((prod, idx) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+          {featuredProducts.map((prod) => (
             <div
               key={prod.id}
               onClick={() => onSelectProduct(prod)}
-              className="group bg-white border border-[#1A1A1A]/5 rounded-2xl overflow-hidden transition-all duration-300 hover:border-black/15 hover:shadow-md cursor-pointer flex flex-col justify-between"
+              className="group bg-transparent border-0 cursor-pointer flex flex-col justify-between text-center select-none"
             >
-              <div className="p-4 relative">
-                <div className="absolute top-4 left-4 z-10 flex flex-col gap-1">
-                  <span className="text-[8px] font-mono bg-[#1A1A1A] text-white px-2 py-0.5 rounded-full font-bold uppercase tracking-widest">
-                    {prod.category}
-                  </span>
-                  {idx === 0 && (
-                    <span className="text-[8px] font-mono bg-emerald-500 text-white px-2 py-0.5 rounded-full font-bold uppercase tracking-widest text-[7px]">
-                      Más Leído
-                    </span>
-                  )}
-                </div>
-                
-                {/* Photo frame */}
-                <div className="aspect-[4/3] rounded-xl overflow-hidden bg-neutral-50 border border-neutral-100 flex items-center justify-center p-2 relative">
+              <div className="w-full relative flex flex-col items-center">
+                {/* Photo container (clean, no container frame/box background, just the photo directly) */}
+                <div className="aspect-[16/10] w-full flex items-center justify-center relative py-4">
                   <img
                     src={prod.image}
                     alt={prod.name}
-                    className="w-full h-full object-contain mix-blend-multiply group-hover:scale-104 transition-transform duration-500"
+                    className="w-full h-full max-h-[130px] object-contain mix-blend-multiply group-hover:scale-104 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-[#1A1A1A]/2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+                
+                {/* Elegant product details placed exactly centered below photo */}
+                <div className="mt-3 flex flex-col items-center w-full px-2">
+                  <h3 className="text-xs sm:text-[13px] font-bold uppercase tracking-widest text-[#1A1A1A] font-sans">
+                    {prod.name}
+                  </h3>
+                  
+                  <p className="text-[11px] text-neutral-500 font-light leading-relaxed max-w-[240px] mt-1.5 text-center line-clamp-2 min-h-[32px]">
+                    {prod.description}
+                  </p>
+
+                  {/* Elegant Price typography */}
+                  <div className="mt-2.5">
+                    <span className="text-sm font-serif italic font-medium text-[#1A1A1A]/90">
+                      {prod.price} €
+                    </span>
+                  </div>
                 </div>
               </div>
 
-              {/* Detail Info panel */}
-              <div className="p-5 border-t border-neutral-50 bg-white">
-                <span className="text-[9px] font-mono uppercase text-neutral-400 font-bold tracking-wider">
-                  {prod.name.split(' ')[0]} // FIRMA AUTOR
+              {/* View details button styled in cool modern aesthetic */}
+              <div className="mt-4 w-full px-2 flex justify-center">
+                <span className="inline-block text-[9.5px] uppercase font-bold tracking-[0.25em] text-[#1A1A1A]/85 border-b border-[#1A1A1A]/10 group-hover:border-[#1A1A1A]/50 pb-0.5 group-hover:text-emerald-700 transition-all font-sans">
+                  CONOCER DETALLES &rarr;
                 </span>
-                <h3 className="text-xs sm:text-[13px] font-serif uppercase tracking-tight font-medium text-neutral-950 mt-1 truncate">
-                  {prod.name}
-                </h3>
-                <p className="text-[11px] text-neutral-500 font-light leading-snug mt-2 line-clamp-2 min-h-8">
-                  {prod.description}
-                </p>
-
-                <div className="flex justify-between items-center mt-5 pt-3 border-t border-neutral-100">
-                  <span className="text-xs font-mono font-bold text-[#1A1A1A]">
-                    {prod.price} €
-                  </span>
-                  <span className="text-[10px] uppercase font-bold tracking-widest text-[#1A1A1A] group-hover:text-emerald-700 underline group-hover:no-underline transition-colors flex items-center gap-1">
-                    Ver Detalle &rarr;
-                  </span>
-                </div>
               </div>
             </div>
           ))}

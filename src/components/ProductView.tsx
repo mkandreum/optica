@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { Product } from '../types';
 import { motion } from 'motion/react';
-import { ArrowLeft, ChevronLeft, ChevronRight, Sparkles, ShoppingBag } from 'lucide-react';
+import { ArrowLeft, ChevronLeft, ChevronRight, ShoppingBag } from 'lucide-react';
 
 function LazyProductDetailImage({ src, alt }: { src: string; alt: string }) {
   const [isReady, setIsReady] = useState(false);
@@ -39,7 +39,6 @@ function LazyProductDetailImage({ src, alt }: { src: string; alt: string }) {
 interface ProductViewProps {
   product: Product;
   onBack: () => void;
-  onTryOn: () => void;
   onAddToCart: () => void;
   onToggleCart: () => void;
   cartCount: number;
@@ -47,7 +46,7 @@ interface ProductViewProps {
   onPrev: () => void;
 }
 
-export function ProductView({ product, onBack, onTryOn, onAddToCart, onToggleCart, cartCount, onNext, onPrev }: ProductViewProps) {
+export function ProductView({ product, onBack, onAddToCart, onToggleCart, cartCount, onNext, onPrev }: ProductViewProps) {
   useEffect(() => {
     // Force standard scroll-to-top on route load
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -146,19 +145,12 @@ export function ProductView({ product, onBack, onTryOn, onAddToCart, onToggleCar
           </div>
 
           {/* Action button triggers */}
-          <div className="flex flex-col sm:flex-row gap-2.5 pt-2">
-            <button 
-              onClick={onTryOn} 
-              className="flex-1 px-5 py-3.5 bg-[#1A1A1A] text-[#F9F9F7] rounded-xl text-[11px] uppercase tracking-widest font-bold hover:bg-[#1A1A1A]/90 hover:scale-[1.01] transition-all cursor-pointer flex items-center justify-center gap-2 shadow-sm text-center"
-            >
-              <Sparkles size={13} className="opacity-90" />
-              Prueba Virtual AR
-            </button>
+          <div className="pt-2">
             <button 
               onClick={onAddToCart} 
-              className="flex-1 px-5 py-3.5 border-2 border-[#1A1A1A] text-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-[#F9F9F7] rounded-xl text-[11px] uppercase tracking-widest font-bold hover:scale-[1.01] transition-all cursor-pointer flex items-center justify-center gap-2 text-center"
+              className="w-full px-6 py-4 bg-[#1A1A1A] text-[#F9F9F7] hover:bg-[#1A1A1A]/90 rounded-xl text-xs uppercase tracking-[0.2em] font-bold hover:scale-[1.01] transition-all cursor-pointer flex items-center justify-center gap-2.5 shadow-md text-center"
             >
-              <ShoppingBag size={13} className="opacity-90" />
+              <ShoppingBag size={14} className="opacity-90" />
               Añadir al Carrito
             </button>
           </div>

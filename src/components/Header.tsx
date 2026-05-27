@@ -17,8 +17,6 @@ const NAV_ITEMS: { id: ViewState; label: string }[] = [
 ];
 
 export function Header({ currentView, onNavigate, onToggleCart, cartCount }: HeaderProps) {
-  if (currentView === 'ar') return null;
-
   return (
     <header className="w-full bg-[#F9F9F7] text-[#1A1A1A] border-b border-[#1A1A1A]/5 sticky top-0 z-50 transition-all select-none">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12 pt-4 pb-3 sm:py-5 flex flex-col items-center gap-5 sm:gap-5">
